@@ -117,10 +117,15 @@ class TicketView extends StatelessWidget {
                     // Show Departure and destination with icon first line
                     Row(
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         const Column(
+
                           children: [
                             TextStyleThird(text: "1 MAY"),
+                            SizedBox(
+                              height: 5,
+                            ),
                             TextStyleFourth(text: "Date"),
                           ],
                         ),
@@ -128,14 +133,20 @@ class TicketView extends StatelessWidget {
                         const Column(
                           children: [
                             TextStyleThird(text: "08:30 AM"),
+                            SizedBox(
+                              height: 5,
+                            ),
                             TextStyleFourth(text: "Departure Time"),
                           ],
                         ),
                         Expanded(child: Container()),
-                        const Column(
+                        const Column(crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             TextStyleThird(text: "23"),
-                            TextStyleFourth(text: "London"),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            TextStyleFourth(text: "November"),
                           ],
                         ),
                       ],
