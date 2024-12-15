@@ -1,8 +1,10 @@
-import 'dart:math';
+
 
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
+import 'package:tiket_app/base/res/widgets/app_double_text.dart';
+import 'package:tiket_app/base/res/widgets/ticket_view.dart';
 
 import '../base/res/media.dart';
 
@@ -15,11 +17,9 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppStyles.bgColors,
         body: ListView(
           children: [
-            const SizedBox(
-              height: 40,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            const SizedBox(height: 40),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
                   Row(
@@ -31,12 +31,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Good Morning",
-                            style: AppStyles.subTitleStyle,
+                            style: AppStyles.headLineStyle3,
                           ),
                           const SizedBox(height: 5),
                           Text(
                             "Book Ticket",
-                            style: AppStyles.titleStyle,
+                            style: AppStyles.headLineStyle,
                           ),
                         ],
                       ),
@@ -71,10 +71,17 @@ class HomeScreen extends StatelessWidget {
                         Text("Search"),
                       ],
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 40),
+                  const AppDoubleText(
+                    bigText: 'Upcoming Flights',
+                    smallText: 'View all',
+                  ),
+                  const SizedBox(height: 20),
+                  const TicketView(),
                 ],
               ),
-            )
+            ),
           ],
         ));
   }
