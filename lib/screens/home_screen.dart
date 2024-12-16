@@ -1,10 +1,9 @@
-
-
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/res/widgets/app_double_text.dart';
 import 'package:tiket_app/base/res/widgets/ticket_view.dart';
+import 'package:tiket_app/base/utils/all_jason.dart';
 
 import '../base/res/media.dart';
 
@@ -73,21 +72,34 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  const AppDoubleText(
+                  AppDoubleText(
                     bigText: 'Upcoming Flights',
                     smallText: 'View all',
+                    onTapNav: () =>
+                        Navigator.pushNamed(context, '/all_ticketes'),
                   ),
                   const SizedBox(height: 20),
-                  const SingleChildScrollView(
+                  SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: [
-                        TicketView(),
-                        TicketView(),
-                        TicketView(),
-                      ],
+                      children: ticketList
+                          .take(4)
+                          .map((singleTiket) => TicketView(
+                                ticket: singleTiket,
+                              ))
+                          .toList(),
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 40),
+                  AppDoubleText(
+                    bigText: 'Hotels',
+                    smallText: 'View all',
+                    onTapNav: () {
+                      // ignore: avoid_print
+                      print('View all hotels');
+                    },
+                  ),
                 ],
               ),
             ),
