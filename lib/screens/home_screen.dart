@@ -4,6 +4,7 @@ import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/res/widgets/app_double_text.dart';
 import 'package:tiket_app/base/res/widgets/ticket_view.dart';
 import 'package:tiket_app/base/utils/all_jason.dart';
+import 'package:tiket_app/screens/widgets/hotel.dart';
 
 import '../base/res/media.dart';
 
@@ -20,6 +21,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,6 +101,18 @@ class HomeScreen extends StatelessWidget {
                       // ignore: avoid_print
                       print('View all hotels');
                     },
+                  ),
+                  //? Hotel Cart View Section
+                  const SizedBox(height: 20),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    child: Row(
+                      children: hotelList
+                          .take(4)
+                          .map((hotel) => const Hotel())
+                          .toList(),
+                    ),
                   ),
                 ],
               ),
