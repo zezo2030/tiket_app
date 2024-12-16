@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_app/base/res/media.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
 
 class Hotel extends StatelessWidget {
-  const Hotel({super.key});
+  const Hotel({super.key, required this.hotel});
+
+  final Map<String, dynamic> hotel;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,11 @@ class Hotel extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppStyles.primaryColor,
               borderRadius: BorderRadius.circular(12),
-              image: const DecorationImage(
-                image: AssetImage(AppMedia.hotelRoom1),
+              image: DecorationImage(
+                image: AssetImage(
+                  "assets/images/${hotel["image"]}",
+                  //AppMedia.hotelRoom1
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,7 +40,7 @@ class Hotel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Text(
-              "Open Space",
+              hotel["name"],
               style: AppStyles.headLineStyle.copyWith(
                 color: AppStyles.kakiColor,
               ),
@@ -45,7 +49,7 @@ class Hotel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Text(
-              "london",
+              hotel["destination"],
               style: AppStyles.headLineStyle3.copyWith(
                 color: Colors.white,
               ),
@@ -54,7 +58,7 @@ class Hotel extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Text(
-              "\$25/night",
+              "\$${hotel["price"]}/night",
               style: AppStyles.headLineStyle.copyWith(
                 color: AppStyles.kakiColor,
               ),

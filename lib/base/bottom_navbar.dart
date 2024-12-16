@@ -1,7 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:tiket_app/screens/search/search_screen.dart';
 
-import '../screens/home_screen.dart';
+import '../screens/home/home_screen.dart';
 
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({super.key});
@@ -13,11 +14,11 @@ class NavBarScreen extends StatefulWidget {
 class _NavBarScreenState extends State<NavBarScreen> {
   final appScreens = [
     const HomeScreen(),
-    // const SearchScreen(),
+    const SearchScreen(),
     // const TicketScreen(),
     // const ProfileScreen(),
 
-    const Center(child: Text('Search')),
+    //const Center(child: Text('Search')),
     const Center(child: Text('Tickets')),
     const Center(child: Text('Profile')),
   ];

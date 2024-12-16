@@ -4,9 +4,9 @@ import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/res/widgets/app_double_text.dart';
 import 'package:tiket_app/base/res/widgets/ticket_view.dart';
 import 'package:tiket_app/base/utils/all_jason.dart';
-import 'package:tiket_app/screens/widgets/hotel.dart';
+import 'package:tiket_app/screens/home/widgets/hotel.dart';
 
-import '../base/res/media.dart';
+import '../../base/res/media.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -110,7 +110,9 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       children: hotelList
                           .take(4)
-                          .map((hotel) => const Hotel())
+                          .map((singleHotel) => Hotel(
+                                hotel: singleHotel,
+                              ))
                           .toList(),
                     ),
                   ),

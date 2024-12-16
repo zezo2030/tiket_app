@@ -131,21 +131,27 @@ List<Map<String, dynamic>> hotelList = [
     'price': 25,
   },
   {
-    'image': 'hotel_room_2.png',
+    'image': 'hotel_room_view_2.png',
     'name': 'Comfort Stay',
     'destination': 'Paris',
     'price': 30,
   },
   {
-    'image': 'hotel_room_3.png',
+    'image': 'hotel_room_view_3.png',
     'name': 'Luxury Inn',
     'destination': 'New York',
     'price': 45,
   },
   {
+    'image': 'hotel_room_view_1.png',
+    'name': 'Mountain Retreat',
+    'destination': 'Tokyo',
+    'price': 40,
+  },
+  {
     'image': 'hotel_room.png',
-    'name': 'Seaside Resort',
-    'destination': 'Sydney',
-    'price': 50,
+    'name': 'City Lights',
+    'destination': 'Dubai',
+    'price': 35,
   }
 ];

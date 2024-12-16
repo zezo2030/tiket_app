@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiket_app/base/bottom_navbar.dart';
-import 'package:tiket_app/screens/all_ticket.dart';
+import 'package:tiket_app/screens/home/all_ticket.dart';
 
 void main() {
   runApp(const MyApp());
