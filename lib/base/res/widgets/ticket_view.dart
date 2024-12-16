@@ -16,11 +16,12 @@ class TicketView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-        width: size.width * 0.85,
-        height: 189,
-        child: Container(
-          margin: EdgeInsets.only(right: wholeScreen ? 0 : 16),
-          child: Column(children: [
+      width: size.width * 0.85,
+      height: 189,
+      child: Container(
+        margin: EdgeInsets.only(right: wholeScreen ? 0 : 16),
+        child: Column(
+          children: [
             // the blue part of the ticket
             Container(
               padding: const EdgeInsets.all(16),
@@ -31,60 +32,64 @@ class TicketView extends StatelessWidget {
                   topRight: Radius.circular(21),
                 ),
               ),
-              child: Column(
+              child: Row(
                 children: [
-                  // Show Departure and destination with icon first line
-                  Row(
-                    children: [
-                      TextStyleThird(text: ticket["from"]["code"]),
-                      Expanded(child: Container()),
-                      const BigDot(),
-                      Expanded(
-                          child: Stack(
-                        children: [
-                          const SizedBox(
-                            height: 24,
-                            child: AppLayoutBuilderWidget(
-                              randomDivider: 6,
-                            ),
-                          ),
-                          Center(
-                            child: Transform.rotate(
-                                angle: 1.57,
-                                child: const Icon(
-                                  Icons.local_airport_rounded,
-                                  color: Colors.white,
-                                )),
-                          ),
-                        ],
-                      )),
-                      const BigDot(),
-                      Expanded(child: Container()),
-                      TextStyleThird(text: ticket["to"]["code"]),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextStyleThird(text: ticket["from"]["code"]),
+                        const SizedBox(height: 3),
+                        TextStyleFourth(text: ticket["from"]["name"]),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 3),
-                  Row(
-                    children: [
-                      SizedBox(
-                          width: 100,
-                          child: TextStyleFourth(text: ticket["from"]["name"])),
-                      Expanded(
-                        child: Container(),
-                      ),
-                      TextStyleFourth(text: ticket["flying_time"]),
-                      Expanded(child: Container()),
-                      SizedBox(
-                        width: 100,
-                        child: TextStyleFourth(
-                          text: ticket["to"]["name"],
-                          textAlign: TextAlign.end,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            const BigDot(),
+                            Expanded(
+                                child: Stack(
+                              children: [
+                                const SizedBox(
+                                  height: 24,
+                                  child: AppLayoutBuilderWidget(
+                                    randomDivider: 6,
+                                  ),
+                                ),
+                                Center(
+                                  child: Transform.rotate(
+                                      angle: 1.57,
+                                      child: const Icon(
+                                        Icons.local_airport_rounded,
+                                        color: Colors.white,
+                                      )),
+                                ),
+                              ],
+                            )),
+                            const BigDot(),
+                          ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 3),
+                        TextStyleFourth(text: ticket["flying_time"]),
+                      ],
+                    ),
                   ),
-
-                  // Show Departure and destination with time
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TextStyleThird(text: ticket["to"]["code"]),
+                        const SizedBox(height: 3),
+                        TextStyleFourth(
+                          text: ticket["to"]["name"],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -109,56 +114,60 @@ class TicketView extends StatelessWidget {
             ),
             // orange part of the ticket
             Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: AppStyles.ticketOrangeColor,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(21),
-                    bottomRight: Radius.circular(21),
-                  ),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppStyles.ticketOrangeColor,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(21),
+                  bottomRight: Radius.circular(21),
                 ),
-                child: Column(
-                  children: [
-                    // Show Departure and destination with icon first line
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Column(
-                          children: [
-                            TextStyleThird(text: ticket["date"]),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const TextStyleFourth(text: "Date"),
-                          ],
-                        ),
-                        Expanded(child: Container()),
-                        Column(
-                          children: [
-                            TextStyleThird(text: ticket["departure_time"]),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const TextStyleFourth(text: "Departure Time"),
-                          ],
-                        ),
-                        Expanded(child: Container()),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            TextStyleThird(text: ticket["number"].toString()),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const TextStyleFourth(text: "Number"),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                )),
-          ]),
-        ));
+              ),
+              child: Column(
+                children: [
+                  // Show Departure and destination with icon first line
+                  Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextStyleThird(text: ticket["date"]),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const TextStyleFourth(text: "Date"),
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Column(
+                        children: [
+                          TextStyleThird(text: ticket["departure_time"]),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const TextStyleFourth(text: "Departure Time"),
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          TextStyleThird(text: ticket["number"].toString()),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const TextStyleFourth(text: "Number"),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
