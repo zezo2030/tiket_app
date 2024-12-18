@@ -14,6 +14,8 @@ class AppStyles {
   static Color planeColor = const Color(0xFFBFC2DF);
   static Color findTicketColor = const Color(0xD91130CE);
   static Color circuleColor = const Color(0xFF189999);
+  static Color ticketColor = const Color(0xFFFFFFFF);
+  static Color wightTicketColor = const Color(0xFF8ACCF7);
 
   //
   //

@@ -27,7 +27,10 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const AppTicketTabs(),
+          const AppTicketTabs(
+            firstTab: 'All Tikwts',
+            secondTab: "Hotels",
+          ),
           const SizedBox(height: 25),
           const AppTextIcon(
               icon: Icons.flight_takeoff_rounded, text: "Departure"),
