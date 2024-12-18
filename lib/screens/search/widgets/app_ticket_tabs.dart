@@ -6,15 +6,18 @@ class AppTicketTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-        color:  AppStyles.ticketTabColor,
+        color: AppStyles.ticketTabColor,
         borderRadius: BorderRadius.circular(50),
       ),
       child: const Row(children: [
         AppTabs(tabText: "All Tickets", tabBorder: false),
-        AppTabs(tabText: "Hotels", tabBorder: true,tabColor: true,),
+        AppTabs(
+          tabText: "Hotels",
+          tabBorder: true,
+          tabColor: true,
+        ),
       ]),
     );
   }
@@ -24,7 +27,11 @@ class AppTabs extends StatelessWidget {
   final String tabText;
   final bool tabBorder;
   final bool tabColor;
-  const AppTabs({super.key, this.tabText = "", this.tabBorder = false, this.tabColor = false});
+  const AppTabs(
+      {super.key,
+      this.tabText = "",
+      this.tabBorder = false,
+      this.tabColor = false});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +39,7 @@ class AppTabs extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 7),
       decoration: BoxDecoration(
-        color: tabColor== false? Colors.white: Colors.transparent,
+        color: tabColor == false ? Colors.white : Colors.transparent,
         borderRadius: tabBorder == false
             ? const BorderRadius.horizontal(left: Radius.circular(50))
             : const BorderRadius.horizontal(right: Radius.circular(50)),
