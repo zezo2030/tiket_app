@@ -1,6 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:tiket_app/base/app_routes.dart';
+import 'package:tiket_app/base/utils/app_routes.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/res/widgets/app_double_text.dart';
 import 'package:tiket_app/base/res/widgets/ticket_view.dart';

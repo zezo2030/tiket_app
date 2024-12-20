@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_app/base/app_routes.dart';
+import 'package:tiket_app/base/utils/app_routes.dart';
 import 'package:tiket_app/base/bottom_navbar.dart';
-import 'package:tiket_app/base/res/widgets/ticket_view.dart';
 import 'package:tiket_app/screens/home/all_ticket.dart';
+import 'package:tiket_app/screens/home/hotel_details_screen.dart';
 import 'package:tiket_app/screens/tickets/ticket_screen.dart';
 
 import 'screens/home/all_hotel.dart';
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
           "/all_ticketes": (context) => const AllTicket(),
           AppRoutes.ticketScreen: (context) =>  const TicketScreen(),
           AppRoutes.allHotel: (context) => const AllHotel(),
+          AppRoutes.hotelDetailScreen: (context) => const HotelDetailsScreen(),
         });
   }
 }
