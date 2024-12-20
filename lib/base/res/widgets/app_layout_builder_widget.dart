@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_app/base/res/styles/app_style.dart';
 
 class AppLayoutBuilderWidget extends StatelessWidget {
   const AppLayoutBuilderWidget({
     super.key,
     required this.randomDivider,
-    this.width= 3, this.isColor,
+    this.width = 3,
+    this.isColor,
   });
 
   final int randomDivider;
@@ -25,7 +25,7 @@ class AppLayoutBuilderWidget extends StatelessWidget {
             height: 1,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: isColor == null? Colors.white : Colors.grey.shade300,
+                color: isColor == null ? Colors.white : Colors.grey.shade300,
               ),
             ),
           );

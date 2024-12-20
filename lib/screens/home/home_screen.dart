@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:tiket_app/base/app_routes.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/res/widgets/app_double_text.dart';
 import 'package:tiket_app/base/res/widgets/ticket_view.dart';
@@ -87,8 +88,18 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       children: ticketList
                           .take(4)
-                          .map((singleTiket) => TicketView(
-                                ticket: singleTiket,
+                          .map((singleTiket) => GestureDetector(
+                                onTap: () {
+                                  var index = ticketList.indexOf(singleTiket);
+                                  Navigator.pushNamed(
+                                    context,
+                                    AppRoutes.ticketScreen,
+                                    arguments: {"index": index},
+                                  );
+                                },
+                                child: TicketView(
+                                  ticket: singleTiket,
+                                ),
                               ))
                           .toList(),
                     ),
@@ -98,8 +109,7 @@ class HomeScreen extends StatelessWidget {
                     bigText: 'Hotels',
                     smallText: 'View all',
                     onTapNav: () {
-                      // ignore: avoid_print
-                      print('View all hotels');
+                      Navigator.pushNamed(context, AppRoutes.allHotel);
                     },
                   ),
                   //? Hotel Cart View Section

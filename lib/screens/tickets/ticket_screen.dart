@@ -10,25 +10,54 @@ import 'package:tiket_app/base/utils/all_jason.dart';
 import 'package:tiket_app/screens/search/widgets/app_ticket_tabs.dart';
 import 'package:tiket_app/screens/tickets/widgets/tticket_position_circle.dart';
 
-class TicketScreen extends StatelessWidget {
+class TicketScreen extends StatefulWidget {
   const TicketScreen({super.key});
+
+  @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  late int ticketIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      ticketIndex = args["index"];
+    }
+
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    // setState(() {
+    //
+    // });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppStyles.bgColors,
+        title: Text(
+          "Tickets",
+          style: AppStyles.headLineStyle,
+        ),
+      ),
       backgroundColor: AppStyles.bgColors,
       body: Center(
         child: Stack(
           children: [
             ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
               children: [
-                const SizedBox(height: 40),
-                Text(
-                  "Tickets",
-                  style: AppStyles.headLineStyle,
-                ),
-                const SizedBox(height: 20),
+                // const SizedBox(height: 40),
+                // Text(
+                //   "Tickets",
+                //   style: AppStyles.headLineStyle,
+                // ),
+                // const SizedBox(height: 20),
                 const AppTicketTabs(
                   firstTab: "Upcoming",
                   secondTab: "previous",
@@ -37,14 +66,15 @@ class TicketScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(left: 16),
                   child: TicketView(
-                    ticket: ticketList[0],
+                    ticket: ticketList[ticketIndex],
                     isColor: true,
                   ),
                 ),
                 const SizedBox(height: 1),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
                   color: AppStyles.ticketColor,
                   child: Column(children: [
                     const Row(
@@ -149,7 +179,8 @@ class TicketScreen extends StatelessWidget {
                           drawText: false,
                           color: AppStyles.textColor,
                           width: double.infinity,
-                          data: 'https://ww.zezo.com', barcode: Barcode.code128()),
+                          data: 'https://ww.zezo.com',
+                          barcode: Barcode.code128()),
                     ),
                   ),
                 ),
@@ -158,11 +189,10 @@ class TicketScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(left: 16),
                   child: TicketView(
-                    ticket: ticketList[0],
-
+                    ticket: ticketList[ticketIndex],
                   ),
                 ),
-
+                const SizedBox(height: 40),
               ],
             ),
             const TicketPositionCircle(pos: true),
