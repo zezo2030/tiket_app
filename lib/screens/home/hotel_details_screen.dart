@@ -2,17 +2,13 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:tiket_app/base/res/styles/app_style.dart';
 import 'package:tiket_app/base/utils/all_jason.dart';
-
 class HotelDetailsScreen extends StatefulWidget {
   const HotelDetailsScreen({super.key});
-
   @override
   State<HotelDetailsScreen> createState() => _HotelDetailsScreenState();
 }
-
 class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
   late int index = 0;
-
   @override
   void didChangeDependencies() {
     var args = ModalRoute.of(context)!.settings.arguments as Map;
@@ -21,7 +17,6 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
     super.didChangeDependencies();
     index = intindexIn;
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
